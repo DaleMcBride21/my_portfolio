@@ -1,8 +1,8 @@
 ---
 layout: cv
-title: Isaac Newtons's CV
+title: Dale McBride's CV
 ---
-# Isaac Newton
+# Dale McBride
 Physicist, Mathematician, Cambridge professor.
 
 <div id="webaddress">
@@ -13,41 +13,39 @@ Physicist, Mathematician, Cambridge professor.
 
 ## Currently
 
-Standing on the shoulders of giants
+A Student at BYUI
 
 ### Specialized in
 
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
+Currently Studying Computer Science and Minoring in Business Management
 
 
 ### Research interests
 
-Cooling, power series, optics, alchemy, planetary motions, apples.
+
 
 
 ## Education
 
-`1654-1660`
-__The King's School, Grantham.__
+`2023-now`
+__Computer Science Degree__
 
-`June 1661 - now`
-__Trinity College, Cambridge__
+`2023 - now`
+__Business Minor__
 
-- Sizar
+`2017-2021`
+__High School Diploma__
 
-`1667 - death`
-__Trinity College, Cambridge__
-
-- Fellow
+- 
 
 
 
 ## Awards
 
-`2012`
-President, *Royal Society*, London, UK
+`All State Basketball`
+`Honor Society`
 
-Associate, *French Academy of Science*, Paris, France
+I met the academic requirements to be apart of the Honor Society
 
 
 
@@ -73,15 +71,16 @@ Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.tech
 
 ## Occupation
 
-`1600`
-__Royal Mint__, London
+`July 2023 - August 2023`
+__Philpott Farm and Sawmill__, Otto, WY
 
-- Warden
-- Minted coins
+- Farm Hand
+- I managed and took care of farm land and other tasks that were given to me.
 
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
-
+`June 2020 - August 2020`
+__Meeteetse School__, Meeteetse, WY
+- Mainenance Worker
+- I maintained or cleaned the different systems and facilities that were on the campus.
 
 
 <!-- ### Footer
