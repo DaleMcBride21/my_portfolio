@@ -3,11 +3,11 @@ layout: cv
 title: Dale McBride's CV
 ---
 # Dale McBride
-Physicist, Mathematician, Cambridge professor.
+Computer Science, Life Learner.
 
 <div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
+<a href="dalemcbride@gmail.com">dalemcbride@gmail.com</a>
+| <a href="https://github.com/DaleMcBride21/my_portfolio">My Github page</a>
 </div>
 
 
@@ -36,13 +36,12 @@ __Business Minor__
 `2017-2021`
 __High School Diploma__
 
-- 
+-
 
 
 
 ## Awards
 
-`All State Basketball`
 `Honor Society`
 
 I met the academic requirements to be apart of the Honor Society
@@ -79,6 +78,7 @@ __Philpott Farm and Sawmill__, Otto, WY
 
 `June 2020 - August 2020`
 __Meeteetse School__, Meeteetse, WY
+
 - Mainenance Worker
 - I maintained or cleaned the different systems and facilities that were on the campus.
 
