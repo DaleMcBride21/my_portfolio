@@ -15,16 +15,6 @@ Computer Science, Life Learner.
 
 A Student at BYUI
 
-### Specialized in
-
-Currently Studying Computer Science and Minoring in Business Management
-
-
-### Research interests
-
-
-
-
 ## Education
 
 `2023-now`
@@ -36,9 +26,6 @@ __Business Minor__
 `2017-2021`
 __High School Diploma__
 
--
-
-
 
 ## Awards
 
@@ -46,29 +33,9 @@ __High School Diploma__
 
 I met the academic requirements to be apart of the Honor Society
 
+`All State Basketball 2020-2021`
 
-
-## Publications
-
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
-
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
-
-`1669`
-Lectiones opticæ.
-
-etc. etc. etc.
-
-### Patents
-
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
-
-
-## Occupation
+## Previous Employment
 
 `July 2023 - August 2023`
 __Philpott Farm and Sawmill__, Otto, WY
