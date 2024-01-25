@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Dale McBride Science Portfolio"
+  title: "Dale McBride Data Science Portfolio"
   favicon: Images/favicon.png
   back-to-top-navigation: true
   repo-url: https://github.com/your_url
@@ -13,7 +13,7 @@ website:
     left: "Dale McBride 2024©"
     right: 
       - icon: linkedin
-        href: Your_LinkedIn_URL
+        href: www.linkedin.com/in/dale-mcbride-8b98a7293
 
   navbar:
     background: primary
