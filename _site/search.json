@@ -7,13 +7,6 @@
     "text": "Introduction\n\nMy name is Dale McBride, I am from a small town in Wyoming called Otto. I have always been interested in computers and have chosen to study Computer Science.\nI have always been active in Student Council as well as sports my entire life. Basketball is my favorite, but I also liked Football and Track.\nSome of my other interests are hunting and fishing. Generally, if it is outdoors I will like to do it.\n\nMarkDown Basics\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "story_telling.html#title-2-header",
-    "href": "story_telling.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "DS250 Projects",
@@ -254,7 +247,7 @@
     "href": "Projects/project1.html#questiontask-1",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nMy name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born I was only one out of four hundred and ten named Dale that year.\n::: {#cell-Q1 chart .cell execution_count=3}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Dale\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Usage of the name Dale\"\n)\nchart.add_annotation(x=1958, y=5735, text=\"Peak in name usgage 1958\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.add_annotation(x=2002, y=410, text=\"My Birth Year 2002\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \n\n:::",
+    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nMy name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born in 2002 I was only one out of four hundred and ten named Dale that year.\n::: {#cell-Q1 chart .cell execution_count=3}\n\nplot example\n# Include and execute your code here\nchart = px.line(df.query('name == \"Dale\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Usage of the name Dale\"\n)\nchart.add_annotation(x=1958, y=5735, text=\"Peak in name usgage 1958\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.add_annotation(x=2002, y=410, text=\"My Birth Year 2002\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -265,7 +258,7 @@
     "href": "Projects/project1.html#questiontask-2",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nIf I were to guess the age of someone Brittany I would guess the age 34. 1990 is when the most children were named Brittany. Making the age of 34 to be the best option. Ages I would not guess would be 45 or 14 because there are very few children named Brittany at those age points. \n::: {#cell-Q2 chart .cell execution_count=4}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Brittany\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Brittany name usage\",\n    \n)\nchart.add_annotation(x=1990, y=32562, text=\"1990\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::",
+    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nIf I were to guess the age of someone Brittany I would guess the age 34. 1990 is when the most children were named Brittany. Making the age of 34 to be the best option. Ages I would not guess would be 45 or 14 because there are very few children named Brittany at those age points. \n::: {#cell-Q2 chart .cell execution_count=4}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Brittany\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Brittany name usage\",\n    \n)\nchart.add_annotation(x=1990, y=32562, text=\"1990\", font=dict(size=10), arrowcolor=\"black\")\n\n\n\nchart.show()\n\n\n                                                \n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -276,7 +269,18 @@
     "href": "Projects/project1.html#questiontask-3",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nFrom 1920-1960 the name Mary was used a ton compared to the other names. They all collectively have a rise in usage at about 1950. After the year 1950 they all start to diwndle in there usage.\n::: {#cell-Q3 chart .cell execution_count=5}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == [\"Mary\", \"Martha\", \"Peter\", \"Paul\"]'),\n    x=\"year\", \n    y=\"Total\",\n    color = 'name',\n    title = 'Name Usage'\n    \n)\n\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::",
+    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nFrom 1920-1960 the name Mary was used a ton compared to the other names. They all collectively have a rise in usage at about 1950. After the year 1950 they all start to diwndle in there usage.\n::: {#cell-Q3 chart .cell execution_count=5}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == [\"Mary\", \"Martha\", \"Peter\", \"Paul\"]'),\n    x=\"year\", \n    y=\"Total\",\n    color = 'name',\n    title = 'Name Usage'\n    \n)\n\nchart.show()\n\n\n                                                \n\n:::",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#questiontask-4",
+    "href": "Projects/project1.html#questiontask-4",
+    "title": "Client Report - Project 1",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nTaking a famous name such as Luke from Star Wars we can see that an increase begins to happen in the name usage after the year 1977. 1977 happens to be the same year that the movie for Star Wars came out. Leading me to beleive that there is a corrolation between the two.\n::: {#cell-Q4 chart .cell execution_count=6}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.query('name == \"Luke\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = 'Amount of children being named Luke'\n)\nchart.add_annotation(x=1977, y=1250, text=\"1977\", font=dict(size=14), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -414,20 +418,6 @@
     "text": "2023-now Computer Science Degree\n2023 - now Business Minor\n2017-2021 High School Diploma"
   },
   {
-    "objectID": "resume.html#awards",
-    "href": "resume.html#awards",
-    "title": "Dale McBride’s CV",
-    "section": "",
-    "text": "Honor Society\nI met the academic requirements to be apart of the Honor Society\nAll State Basketball 2020-2021"
-  },
-  {
-    "objectID": "resume.html#previous-employment",
-    "href": "resume.html#previous-employment",
-    "title": "Dale McBride’s CV",
-    "section": "",
-    "text": "July 2023 - August 2023 Philpott Farm and Sawmill, Otto, WY\n\nFarm Hand\nI managed and took care of farm land and other tasks that were given to me.\n\nJune 2020 - August 2020 Meeteetse School, Meeteetse, WY\n\nMainenance Worker\nI maintained or cleaned the different systems and facilities that were on the campus."
-  },
-  {
     "objectID": "resume.html#awardsinvolvement",
     "href": "resume.html#awardsinvolvement",
     "title": "Dale McBride’s CV",
@@ -435,14 +425,10 @@
     "text": "Honor Society\n\nI met the academic requirements to be apart of the Honor Society\n\nAll State Basketball 2020-2021 All Conference Football 2020 Student Council Vice President - In this role I was asked to help organize trips and activities that we wanted to do at school."
   },
   {
-    "objectID": "Projects/project1.html#questiontask-4",
-    "href": "Projects/project1.html#questiontask-4",
-    "title": "Client Report - Project 1",
-    "section": "QUESTION|TASK 4",
-    "text": "QUESTION|TASK 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nTaking a famous name such as Luke from Star Wars we can see that an increase begins to happen in the name usage after the year 1977. 1977 happens to be the same year that the movie for Star Wars came out. Leading me to beleive that there is a corrolation between the two.\n::: {#cell-Q4 chart .cell execution_count=6}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.query('name == \"Luke\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = 'Amount of children being named Luke'\n)\nchart.add_annotation(x=1977, y=1250, text=\"1977\", font=dict(size=14), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
+    "objectID": "resume.html#previous-employment",
+    "href": "resume.html#previous-employment",
+    "title": "Dale McBride’s CV",
+    "section": "",
+    "text": "July 2023 - August 2023 Philpott Farm and Sawmill, Otto, WY\n\nFarm Hand\nI managed and took care of farm land and other tasks that were given to me.\n\nJune 2020 - August 2020 Meeteetse School, Meeteetse, WY\n\nMainenance Worker\nI maintained or cleaned the different systems and facilities that were on the campus."
   }
 ]

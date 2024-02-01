@@ -51,7 +51,7 @@ __Highlight the Questions and Tasks__
 
 __How does your name at your birth year compare to its use historically?__
 
-_My name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born I was only one out of four hundred and ten named Dale that year._
+_My name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born in 2002 I was only one out of four hundred and ten named Dale that year._
 
 ```{python}
 #| label: Q1 chart
@@ -59,7 +59,7 @@ _My name usage throughout the years has changed significantly as it nears my bir
 #| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
-chart = px.scatter(df.query('name == "Dale"'),
+chart = px.line(df.query('name == "Dale"'),
     x="year", 
     y="Total",
     title = "Usage of the name Dale"
@@ -90,6 +90,8 @@ chart = px.scatter(df.query('name == "Brittany"'),
     
 )
 chart.add_annotation(x=1990, y=32562, text="1990", font=dict(size=10), arrowcolor="black")
+
+
 
 chart.show()
 ```

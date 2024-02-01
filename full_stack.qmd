@@ -1,11 +1,13 @@
 ---
-title: "about me"
-subtitle: "my data science portfolio"
+title: "About Me"
+subtitle: "Dale McBride data science portfolio"
 # use quarto markdown to 
 ---
 
-# Title 1 Header
-## Title 2 Header
+# Introduction
+- My name is Dale McBride, I am from a small town in Wyoming called Otto. I have always been interested in computers and have chosen to study Computer Science. 
+- I have always been active in Student Council as well as sports my entire life. Basketball is my favorite, but I also liked Football and Track. 
+- Some of my other interests are hunting and fishing. Generally, if it is outdoors I will like to do it. 
 
 [MarkDown Basics](https://quarto.org/docs/authoring/markdown-basics.html#links-images)
 
