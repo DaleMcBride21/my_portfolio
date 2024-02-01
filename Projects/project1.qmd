@@ -56,7 +56,7 @@ _My name usage throughout the years has changed significantly as it nears my bir
 ```{python}
 #| label: Q1 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
+#| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
 chart = px.scatter(df.query('name == "Dale"'),
@@ -80,7 +80,7 @@ _If I were to guess the age of someone Brittany I would guess the age 34. 1990 i
 ```{python}
 #| label: Q2 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
+#| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
 chart = px.scatter(df.query('name == "Brittany"'),
@@ -103,7 +103,7 @@ _From 1920-1960 the name Mary was used a ton compared to the other names. They a
 ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
+#| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
 chart = px.scatter(df.query('name == ["Mary", "Martha", "Peter", "Paul"]'),
@@ -126,7 +126,7 @@ _Taking a famous name such as Luke from Star Wars we can see that an increase be
 ```{python}
 #| label: Q4 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
+#| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
 chart = px.bar(df.query('name == "Luke"'),
