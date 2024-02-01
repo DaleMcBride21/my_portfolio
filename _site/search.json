@@ -232,7 +232,7 @@
     "href": "Projects/project1.html",
     "title": "Client Report - Project 1",
     "section": "",
-    "text": "After analyzing the data some interesting insights developed. Some key insights were that each name has a specific trend that corrosponds with it. The trends seen with names can be related to events that happen. Such as a movie that has been released recently. A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "After analyzing the data some interesting insights developed. Some key insights were that each name has a specific trend that corrosponds with it. The trends seen with names can be related to events that happen. Such as a movie that has been released recently.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -243,7 +243,7 @@
     "href": "Projects/project1.html#elevator-pitch",
     "title": "Client Report - Project 1",
     "section": "",
-    "text": "After analyzing the data some interesting insights developed. Some key insights were that each name has a specific trend that corrosponds with it. The trends seen with names can be related to events that happen. Such as a movie that has been released recently. A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "After analyzing the data some interesting insights developed. Some key insights were that each name has a specific trend that corrosponds with it. The trends seen with names can be related to events that happen. Such as a movie that has been released recently.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -254,7 +254,7 @@
     "href": "Projects/project1.html#questiontask-1",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nMy name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born I was only one out of four hundred and ten named Dale that year.\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q1 chart .cell execution_count=3}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Dale\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Usage of the name Dale\"\n)\nchart.add_annotation(x=1958, y=5735, text=\"Peak in name usgage 1958\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.add_annotation(x=2002, y=410, text=\"My Birth Year 2002\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::",
+    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nMy name usage throughout the years has changed significantly as it nears my birth month. In 1958 is where the name peaked in usage and after that it dropped off significantly. When I was born I was only one out of four hundred and ten named Dale that year.\n::: {#cell-Q1 chart .cell execution_count=3}\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Dale\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Usage of the name Dale\"\n)\nchart.add_annotation(x=1958, y=5735, text=\"Peak in name usgage 1958\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.add_annotation(x=2002, y=410, text=\"My Birth Year 2002\", font=dict(size=10), arrowcolor=\"black\")\n\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
