@@ -83,7 +83,7 @@ _If I were to guess the age of someone Brittany I would guess the age 34. 1990 i
 #| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
-chart = px.scatter(df.query('name == "Brittany"'),
+chart = px.line(df.query('name == "Brittany"'),
     x="year", 
     y="Total",
     title = "Brittany name usage",
@@ -108,7 +108,7 @@ _From 1920-1960 the name Mary was used a ton compared to the other names. They a
 #| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
-chart = px.scatter(df.query('name == ["Mary", "Martha", "Peter", "Paul"]'),
+chart = px.line(df.query('name == ["Mary", "Martha", "Peter", "Paul"]'),
     x="year", 
     y="Total",
     color = 'name',
