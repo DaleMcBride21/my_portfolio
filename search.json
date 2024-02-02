@@ -193,14 +193,14 @@
     "href": "Projects/project1.html#questiontask-2",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nIf I were to guess the age of someone Brittany I would guess the age 34. 1990 is when the most children were named Brittany. Making the age of 34 to be the best option. Ages I would not guess would be 45 or 14 because there are very few children named Brittany at those age points. \n\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == \"Brittany\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Brittany name usage\",\n    \n)\nchart.add_annotation(x=1990, y=32562, text=\"1990\", font=dict(size=10), arrowcolor=\"black\")\n\n\n\nchart.show()"
+    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nIf I were to guess the age of someone Brittany I would guess the age 34. 1990 is when the most children were named Brittany. Making the age of 34 to be the best option. Ages I would not guess would be 45 or 14 because there are very few children named Brittany at those age points. \n\n\nplot example\n# Include and execute your code here\nchart = px.line(df.query('name == \"Brittany\"'),\n    x=\"year\", \n    y=\"Total\",\n    title = \"Brittany name usage\",\n    \n)\nchart.add_annotation(x=1990, y=32562, text=\"1990\", font=dict(size=10), arrowcolor=\"black\")\n\n\n\nchart.show()"
   },
   {
     "objectID": "Projects/project1.html#questiontask-3",
     "href": "Projects/project1.html#questiontask-3",
     "title": "Client Report - Project 1",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nFrom 1920-1960 the name Mary was used a ton compared to the other names. They all collectively have a rise in usage at about 1950. After the year 1950 they all start to diwndle in there usage.\n\n\nplot example\n# Include and execute your code here\nchart = px.scatter(df.query('name == [\"Mary\", \"Martha\", \"Peter\", \"Paul\"]'),\n    x=\"year\", \n    y=\"Total\",\n    color = 'name',\n    title = 'Name Usage'\n    \n)\n\nchart.show()"
+    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nFrom 1920-1960 the name Mary was used a ton compared to the other names. They all collectively have a rise in usage at about 1950. After the year 1950 they all start to diwndle in there usage.\n\n\nplot example\n# Include and execute your code here\nchart = px.line(df.query('name == [\"Mary\", \"Martha\", \"Peter\", \"Paul\"]'),\n    x=\"year\", \n    y=\"Total\",\n    color = 'name',\n    title = 'Name Usage'\n    \n)\n\nchart.show()"
   },
   {
     "objectID": "Projects/project1.html#questiontask-4",
