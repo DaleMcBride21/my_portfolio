@@ -31,7 +31,7 @@ execute:
 import pandas as pd
 import numpy as np
 import plotly.express as px
-```
+``` -->
 
 
 ## Elevator pitch
@@ -39,12 +39,12 @@ import plotly.express as px
 _paste your elevator pitch here_
 _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
 
-```{python}
+<!-- ```{python}
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
 df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
-```
+``` -->
 
 __Highlight the Questions and Tasks__
 
@@ -54,17 +54,17 @@ __COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q1 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -75,10 +75,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q1 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -93,7 +93,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
 
 
 ## QUESTION|TASK 2
@@ -102,17 +102,17 @@ __COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q2 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -123,10 +123,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q2 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -141,7 +141,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
 
 
 ## QUESTION|TASK 3
@@ -150,17 +150,17 @@ __COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -171,10 +171,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q3 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"

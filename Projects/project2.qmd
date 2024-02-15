@@ -150,17 +150,17 @@ __What is the best month to fly if you want to avoid delays of any length? Discu
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -171,10 +171,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
- ```
+ ``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q3 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -189,7 +189,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
 
 
 ## QUESTION|TASK 4
@@ -204,17 +204,17 @@ _From April to August, 40% of delayed flights in the NAS category are due to wea
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q4
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q4 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -225,10 +225,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q4 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -243,7 +243,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
 
 
 ## QUESTION|TASK 5
