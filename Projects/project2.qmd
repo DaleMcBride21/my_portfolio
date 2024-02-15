@@ -25,7 +25,7 @@ execute:
     
 ---
 
-<!-- ```{python}
+```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
@@ -58,26 +58,29 @@ _type your results and analysis here_
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
-
-
-
+# df.head(25)
+df
+# null = pd.isnull(df).sum()
+# null
 ```
-
-_include figures in chunks and discuss your findings in the figure._
 
 ```{python}
-#| label: Q1 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
+#| label: displays all missing values
+missing_values = [-999, "", np.NaN]
+missing = df.isin(missing_values).sum()
+missing.head(20)
 ```
 
+```{python}
+missing = df.isin(missing_values)
+fill_nan_df = df.mask(missing, "NaN")
+fill_nan_df
+
+
+```
+
+
+_include figures in chunks and discuss your findings in the figure._
 
 ```{python}
 #| label: Q1 table
@@ -85,14 +88,10 @@ chart.show()
 #| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
 # Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+mydat = fill_nan_df.head(1)
 
-display(mydat)
+json_data = mydat.to_json()
+json_data
 
 ```
 
@@ -108,23 +107,25 @@ _type your results and analysis here_
 #| code-summary: Read and format data
 # Include and execute your code here
 
+replace_nan_df = fill_nan_df
+
+
+#code for new columns
+#total flights delayed divided by total flights
+proportion_of_flights = (((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total)* 100).__round__())
+
+#delay time in minutes to hours
+average_delay_time_hours = ((((replace_nan_df.minutes_delayed_total / replace_nan_df.num_of_flights_total) / 60)* 100).__round__())
+
+
+#appends new columns
+replace_nan_df['proportion_of_flights'] = proportion_of_flights
+replace_nan_df['average_delay_time'] = average_delay_time_hours
+replace_nan_df
 
 ```
 
 _include figures in chunks and discuss your findings in the figure._
-
-```{python}
-#| label: Q2 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
 
 
 ```{python}
@@ -133,12 +134,10 @@ chart.show()
 #| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
 # Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+mydat = replace_nan_df.head(1000)\
+    .groupby('airport_name')\
+    .tail(15)\
+    .filter(["airport_name", "num_of_flights_total", "num_of_delays_total","proportion_of_flights", "average_delay_time" ])
 
 display(mydat)
 
@@ -172,7 +171,7 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+ ```
 
 
 ```{python}
@@ -253,17 +252,17 @@ __Using the new weather variable calculated above, create a barplot showing the 
 
 _type your results and analysis here_
 
-```{python}
+<!-- ```{python}
 #| label: Q5
 #| code-summary: Read and format data
 # Include and execute your code here
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q5 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -274,10 +273,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q5 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
