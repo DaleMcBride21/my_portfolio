@@ -110,13 +110,18 @@ _type your results and analysis here_
 #| code-summary: Read and format data
 # Include and execute your code here
 replace_nan_df = fill_nan_df
+```
+
+```{python}
 
 # replace_nan_df.drop(columns=['airport_name', 'month', 'year'], inplace=True)
 # replace_nan_df = replace_nan_df.query("num_of_delays_late_aircraft != 'NaN'")
 # replace_nan_df.query("num_of_flights_total != 'NaN'", inplace=True)
 
-replace_nan_df = replace_nan_df.groupby('airport_code').agg({'num_of_flights_total': 'sum', 'num_of_delays_total': 'sum', 'minutes_delayed_total': 'sum'})
-replace_nan_df #select the four columns that are needed
+replace_nan_df = replace_nan_df.groupby('airport_code').agg('sum')# this should select airport code and combine all of the same airport data together
+
+
+replace_nan_df
 #code for new columns
 #total flights delayed divided by total flights
 proportion_of_flights = ((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total))
@@ -142,7 +147,7 @@ _include figures in chunks and discuss your findings in the figure._
 #| tbl-cap-location: top
 # Include and execute your code here
 mydat = (replace_nan_df.head(1000)
-    .groupby('airport_name')
+    .groupby('airport_code')
     .tail(1)
     .filter(["airport_name", "num_of_flights_total", "num_of_delays_total","proportion_of_flights", "average_delay_time" ])
     
@@ -158,15 +163,18 @@ __What is the best month to fly if you want to avoid delays of any length? Discu
 
 _type your results and analysis here_
 
-<!-- ```{python}
+```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
 #groupby airport code
 #select month
 
+#remove any places where the month variable is missing
+#I need to groupby airport and by each month
+#then get the total amount of minutes delayed total by month
 
-``` -->
+```
 
 _include figures in chunks and discuss your findings in the figure._
 
