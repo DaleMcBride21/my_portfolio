@@ -138,23 +138,6 @@ replace_nan_df
 _include figures in chunks and discuss your findings in the figure._
 
 
-```{python}
-#| label: Q2 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = (replace_nan_df.head(1000)
-    .groupby('airport_code')
-    .tail(1)
-    .filter(["airport_name", "num_of_flights_total", "num_of_delays_total","proportion_of_flights", "average_delay_time" ])
-    
-)
-display(mydat)
-
-```
-
-
 ## QUESTION|TASK 3
 
 __What is the best month to fly if you want to avoid delays of any length? Discuss the metric you chose and why you chose it to calculate your answer. Include one chart to help support your answer, with the x-axis ordered by month. (To answer this question, you will need to remove any rows that are missing the Month variable.)__
