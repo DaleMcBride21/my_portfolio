@@ -112,22 +112,23 @@ _type your results and analysis here_
 replace_nan_df = fill_nan_df
 
 # replace_nan_df.drop(columns=['airport_name', 'month', 'year'], inplace=True)
-replace_nan_df.dropna(inplace=True)
+# replace_nan_df = replace_nan_df.query("num_of_delays_late_aircraft != 'NaN'")
+# replace_nan_df.query("num_of_flights_total != 'NaN'", inplace=True)
 
-replace_nan_df = replace_nan_df.groupby('airport_code').agg('sum')
-replace_nan_df
+replace_nan_df = replace_nan_df.groupby('airport_code').agg({'num_of_flights_total': 'sum', 'num_of_delays_total': 'sum', 'minutes_delayed_total': 'sum'})
+replace_nan_df #select the four columns that are needed
 #code for new columns
 #total flights delayed divided by total flights
-# proportion_of_flights = ((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total))
+proportion_of_flights = ((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total))
 
 #delay time in minutes to hours
-# average_delay_time_hours = (((replace_nan_df.minutes_delayed_total / replace_nan_df.num_of_flights_total) / 60))
+average_delay_time_hours = (((replace_nan_df.minutes_delayed_total / replace_nan_df.num_of_flights_total) / 60))
 
 
 #appends new columns
-# replace_nan_df['proportion_of_flights'] = proportion_of_flights
-# replace_nan_df['average_delay_time'] = average_delay_time_hours
-# replace_nan_df
+replace_nan_df['proportion_of_flights'] = proportion_of_flights
+replace_nan_df['average_delay_time'] = average_delay_time_hours
+replace_nan_df
 
 ```
 
@@ -161,6 +162,8 @@ _type your results and analysis here_
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
+#groupby airport code
+#select month
 
 
 ``` -->
