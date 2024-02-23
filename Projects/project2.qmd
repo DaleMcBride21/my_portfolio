@@ -118,10 +118,8 @@ replace_nan_df = fill_nan_df
 # replace_nan_df = replace_nan_df.query("num_of_delays_late_aircraft != 'NaN'")
 # replace_nan_df.query("num_of_flights_total != 'NaN'", inplace=True)
 
-replace_nan_df = replace_nan_df.groupby('airport_code').agg('sum')# this should select airport code and combine all of the same airport data together
-
-
-replace_nan_df
+replace_nan_df = replace_nan_df.groupby('airport_code').agg({'num_of_flights_total': 'sum', 'num_of_delays_total': 'sum', 'minutes_delayed_total': 'sum'})
+replace_nan_df #select the four columns that are needed
 #code for new columns
 #total flights delayed divided by total flights
 proportion_of_flights = ((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total))
