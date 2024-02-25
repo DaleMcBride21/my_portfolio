@@ -55,7 +55,7 @@ __Write an SQL query to create a new dataframe about baseball players who attend
 
 _type your results and analysis here_
 
-```{sql}
+<!-- ```{sql}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
@@ -78,11 +78,11 @@ ORDER BY
 
 
 
-```
+``` -->
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
+<!-- ```{python}
 #| label: Q1 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
@@ -93,10 +93,10 @@ chart = px.bar(df.head(200),
     y="AK"
 )
 chart.show()
-```
+``` -->
 
 
-```{python}
+<!-- ```{python}
 #| label: Q1 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -111,7 +111,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
 
 
 ## QUESTION|TASK 2
