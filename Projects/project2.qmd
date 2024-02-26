@@ -36,8 +36,7 @@ import plotly.express as px
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+_After looking through the flight data there are some issues that are apparent with flight delays. We can see that there are disparities in performance between the different airports. These insights shed light on airports grappling with higher rates of delays, allowing us to pinpoint areas for improvement._
 
 ```{python}
 #| label: project data
@@ -52,7 +51,7 @@ __Highlight the Questions and Tasks__
 
 __Fix all of the varied missing data types in the data to be consistent (all missing values should be displayed as “NaN”). In your report include one record example (one row) from your new data, in the raw JSON format. Your example should display the “NaN” for at least one missing value.__
 
-_type your results and analysis here_
+_By replacing all of the missing or abnormal values it preps the dataset to be ready to be manipulated for the next tasks._
 
 ```{python}
 #| label: Q1
@@ -70,7 +69,6 @@ missing = df.isin(missing_values).sum()
 #this replaces all of the missing values that are in the list above as "NaN"
 missing = df.isin(missing_values)
 fill_nan_df = df.mask(missing, "NaN")
-fill_nan_df
 ```
 
 _include figures in chunks and discuss your findings in the figure._
@@ -93,7 +91,7 @@ json_data
 
 __Which airport has the worst delays? Discuss the metric you chose, and why you chose it to determine the “worst” airport. Your answer should include a summary table that lists (for each airport) the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours.__
 
-_type your results and analysis here_
+_The airport with the worst delays is clearly San Francisco California airport. 26% of flights at that airport are delayed. Which is 3% above any other airport that is listed. _
 
 ```{python}
 #| label: Q2
@@ -139,15 +137,13 @@ _type your results and analysis here_
 #this querys the data and only shows values that are not NaN
 task_3_df = fill_nan_df
 task_3_df = task_3_df.query("month != 'NaN'")
-task_3_df
 
 #this groups by the month and aggregates the minutes delayed total for each month
 task_3_df = task_3_df.groupby('month').agg({'minutes_delayed_total': 'sum'})
-task_3_df
 
 #this moves the month from being the index to being a normal column
 task_3_df.reset_index(inplace=True)
-task_3_df
+
 
 #this replaces the incorrect string spelling for FEBUARY as FEBRUARY
 task_3_df['month'].replace('Febuary', 'February', inplace=True)
@@ -167,21 +163,23 @@ task_3_df
 # task_3_df
 ```
 
-_include figures in chunks and discuss your findings in the figure._
-
 ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
 #| fig-align: center
+average_delay = task_3_df['minutes_delayed_total'].mean()
+
 chart = px.bar(task_3_df,
     x='month', 
     y="minutes_delayed_total",
     title='Total minutes delayed in each month'
 )
 
+chart.add_hline(y=average_delay, line_dash='solid', line_color='red')
+
 chart.show()
- ```
+```
 
 
 ## QUESTION|TASK 4
@@ -194,7 +192,7 @@ _30% of all delayed flights in the Late-Arriving category are due to weather._
 
 _From April to August, 40% of delayed flights in the NAS category are due to weather. The rest of the months, the proportion rises to 65%._
 
-_type your results and analysis here_
+_After looking at the data it shows that the totals weather delays in quite substantial for each airport that is listed at the top of the data. Some have almost 4000 delays._
 
 ```{python}
 #| label: Q4
@@ -212,10 +210,12 @@ weather = (df.assign(
             df.num_of_delays_nas*0.65),
     weather = lambda x: x.severe + x.mild_late + x.mild,
     proportion_weather_delay = lambda x: x.weather / x.num_of_delays_total,
-    proportion_weather_total = lambda x:  x.weather / x.num_of_flights_total)
+    proportion_weather_total = lambda x:  x.weather / x.num_of_flights_total,
+    weather_delays_total = lambda x: round(x.mild + x.severe))
     .filter(['airport_code','month','year', 'severe','mild', 'mild_late',
     'weather', 'proportion_weather_total', 
-    'proportion_weather_delay', 'num_of_flights_total', 'num_of_delays_total']))
+    'proportion_weather_delay', 'num_of_flights_total', 'num_of_delays_total', 'weather_delays_total']))
+
 weather.head()
 ```
 
@@ -226,9 +226,8 @@ _include figures in chunks and discuss your findings in the figure._
 
 __Using the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Discuss what you learn from this graph.__
 
-_type your results and analysis here_
+_From this grpah you can see which airports have thet least amount of delays by weather and you can quickly see the two airports that have a lot of delays._
 
-_include figures in chunks and discuss your findings in the figure._
 
 ```{python}
 #| label: Q5 chart
@@ -244,5 +243,9 @@ chart = px.bar(average_delay_by_airport.head(6),
     y="proportion_weather_delay",
     title="Weather Delay Proportion"
 )
+
+chart.update_xaxes(title="Airport Code")
+chart.update_yaxes(title="Weather Delay Percentage")
+
 chart.show()
 ```
