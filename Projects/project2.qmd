@@ -58,30 +58,20 @@ _type your results and analysis here_
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
-# df.head(25)
-df.head(20)
-# null = pd.isnull(df).sum()
-# null
-```
 
-```{python}
-#| label: displays all missing values
-# shows me what columns have values that are different that the rest
+#this just shows me the top of the dataframe to start out with
+df.head(20)
+
+#this shows me how many items in what columns need to be replaced
 missing_values = [-999, "", 'n/a', np.NaN]
 missing = df.isin(missing_values).sum()
-missing
-```
 
-```{python}
 
+#this replaces all of the missing values that are in the list above as "NaN"
 missing = df.isin(missing_values)
 fill_nan_df = df.mask(missing, "NaN")
 fill_nan_df
-
-
-
 ```
-
 
 _include figures in chunks and discuss your findings in the figure._
 
@@ -114,10 +104,6 @@ replace_nan_df = fill_nan_df
 
 ```{python}
 
-# replace_nan_df.drop(columns=['airport_name', 'month', 'year'], inplace=True)
-# replace_nan_df = replace_nan_df.query("num_of_delays_late_aircraft != 'NaN'")
-# replace_nan_df.query("num_of_flights_total != 'NaN'", inplace=True)
-
 #select the four columns that are needed
 replace_nan_df = replace_nan_df.groupby('airport_code').agg({'num_of_flights_total': 'sum', 'num_of_delays_total': 'sum', 'minutes_delayed_total': 'sum'})
 
@@ -125,6 +111,7 @@ replace_nan_df = replace_nan_df.groupby('airport_code').agg({'num_of_flights_tot
 #total flights delayed divided by total flights
 proportion_of_flights = ((replace_nan_df.num_of_delays_total / replace_nan_df.num_of_flights_total))
 
+#minutes delayed total divided by total of flights
 #delay time in minutes to hours
 average_delay_time_hours = (((replace_nan_df.minutes_delayed_total / replace_nan_df.num_of_flights_total) / 60))
 
@@ -153,29 +140,19 @@ _type your results and analysis here_
 task_3_df = fill_nan_df
 task_3_df = task_3_df.query("month != 'NaN'")
 task_3_df
-```
-
-```{python}
 
 #this groups by the month and aggregates the minutes delayed total for each month
 task_3_df = task_3_df.groupby('month').agg({'minutes_delayed_total': 'sum'})
 task_3_df
 
-```
-
-```{python}
 #this moves the month from being the index to being a normal column
 task_3_df.reset_index(inplace=True)
 task_3_df
-```
 
-```{python}
 #this replaces the incorrect string spelling for FEBUARY as FEBRUARY
 task_3_df['month'].replace('Febuary', 'February', inplace=True)
 task_3_df
-```
 
-```{python}
 #this is supposed to order the months in the correct order
 
 # month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -186,8 +163,8 @@ task_3_df
 
 # task_3_df['month'] = pd.Categorical(task_3_df['month'], categories=month_order, ordered=True)
 
-task_3_df = task_3_df.sort_values(by='month')
-task_3_df
+# task_3_df = task_3_df.sort_values(by='month')
+# task_3_df
 ```
 
 _include figures in chunks and discuss your findings in the figure._
@@ -197,7 +174,6 @@ _include figures in chunks and discuss your findings in the figure._
 #| code-summary: plot example
 #| fig-cap: "My useless chart"
 #| fig-align: center
-# Include and execute your code here
 chart = px.bar(task_3_df,
     x='month', 
     y="minutes_delayed_total",
@@ -224,9 +200,6 @@ _type your results and analysis here_
 #| label: Q4
 #| code-summary: Read and format data
 # Include and execute your code here
-
-
-
 
 weather = (df.assign(
     severe = df.num_of_delays_weather, # no missing
@@ -255,15 +228,6 @@ __Using the new weather variable calculated above, create a barplot showing the 
 
 _type your results and analysis here_
 
-```{python}
-#| label: Q5
-#| code-summary: Read and format data
-# Include and execute your code here
-average_delay_by_airport = weather.groupby('airport_code')['proportion_weather_delay'].mean().reset_index()
-
-
-```
-
 _include figures in chunks and discuss your findings in the figure._
 
 ```{python}
@@ -273,6 +237,7 @@ _include figures in chunks and discuss your findings in the figure._
 #| fig-align: center
 # Include and execute your code here
 
+average_delay_by_airport = weather.groupby('airport_code')['proportion_weather_delay'].mean().reset_index()
 
 chart = px.bar(average_delay_by_airport.head(6),
     x="airport_code", 
