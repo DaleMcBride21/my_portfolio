@@ -44,7 +44,9 @@ _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METR
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
-conn = sqlite3.connect("C:\\Users\\dlmcb\\OneDrive\\Documents\\GitHub\\school_work\\ds250\\testing\\lahmansbaseballdb.sqlite")
+import sys
+sqlite_file = "C:/Users/dlmcb/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite"
+conn = sqlite3.connect(sqlite_file)
 ```
 
 __Highlight the Questions and Tasks__
@@ -55,16 +57,17 @@ __Write an SQL query to create a new dataframe about baseball players who attend
 
 _type your results and analysis here_
 
-<!-- ```{sql}
+```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
-query = SELECT
-    conn.playerID,
-    conn.schoolID,
-    conn.salary,
-    conn.yearID,
-    conn.teamID
+query = '''
+SELECT
+    conn.playerID
+,   conn.schoolID
+,   conn.salary
+,   conn.yearID
+,   conn.teamID
 FROM
     conn
 JOIN
@@ -75,10 +78,10 @@ WHERE
     college.schoolName = 'BYU-Idaho'
 ORDER BY
     conn.salary DESC;
+'''
 
 
-
-``` -->
+```
 
 _include figures in chunks and discuss your findings in the figure._
 
