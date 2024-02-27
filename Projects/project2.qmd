@@ -127,7 +127,7 @@ _include figures in chunks and discuss your findings in the figure._
 
 __What is the best month to fly if you want to avoid delays of any length? Discuss the metric you chose and why you chose it to calculate your answer. Include one chart to help support your answer, with the x-axis ordered by month. (To answer this question, you will need to remove any rows that are missing the Month variable.)__
 
-_type your results and analysis here_
+_The best month to fly in to avoid delays is November. All of the other months are higher in total minutes delayed. I used the total minutes because it shows which month has the most time spent just sitting there and not getting to where you want to go._
 
 ```{python}
 #| label: Q3
@@ -226,7 +226,7 @@ _include figures in chunks and discuss your findings in the figure._
 
 __Using the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Discuss what you learn from this graph.__
 
-_From this grpah you can see which airports have thet least amount of delays by weather and you can quickly see the two airports that have a lot of delays._
+_From this graph you can see which airports have thet least amount of delays by weather and you can quickly see the two airports that have a lot of delays._
 
 
 ```{python}
