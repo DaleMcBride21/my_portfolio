@@ -45,8 +45,9 @@ _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METR
 #| code-summary: Read and format project data
 # Include and execute your code here
 import sys
-sqlite_file = "C:/Users/dlmcb/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite"
+sqlite_file = "C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite"
 conn = sqlite3.connect(sqlite_file)
+
 ```
 
 __Highlight the Questions and Tasks__
@@ -62,25 +63,17 @@ _type your results and analysis here_
 #| code-summary: Read and format data
 # Include and execute your code here
 query = '''
-SELECT
-    conn.playerID
-,   conn.schoolID
-,   conn.salary
-,   conn.yearID
-,   conn.teamID
-FROM
-    conn
-JOIN
-    college
-ON
-    conn.schoolID = college.schoolID
-WHERE
-    college.schoolName = 'BYU-Idaho'
-ORDER BY
-    conn.salary DESC;
+SELECT 
+    playerID
+,   schoolID
+,   salary
+,   yearID
+,   teamID
+
 '''
 
-
+df = pd.read_sql_query(query,conn)
+df
 ```
 
 _include figures in chunks and discuss your findings in the figure._
