@@ -61,11 +61,12 @@ _type your results and analysis here_
 #| code-summary: Read and format data
 # Include and execute your code here
 q = '''
-SELECT s.playerID, s.salary, s.yearID, s.teamID, sch.schoolID -- this selects the columns
-FROM salaries AS s -- this selects which table to pull from
-JOIN schools AS sch -- this joins another table so we can use the data from it as well
-WHERE sch.schoolID = 'idbyuid' -- this selects the data that only has the BYUi ID
-ORDER BY s.salary DESC; -- this orders the data descneding according to how much they made that year
+SELECT DISTINCT cp.playerID, s.salary, s.yearID, s.teamID, cp.schoolID -- this selects the columns
+FROM collegeplaying AS cp 
+LEFT JOIN salaries AS s 
+ON s.playerID = cp.PlayerID
+WHERE cp.schoolID = 'idbyuid'
+ORDER BY s.salary DESC;
 '''
 
 df1 = pd.read_sql_query(q,conn)
@@ -77,13 +78,11 @@ df1
 
 __This three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)__
 
-__Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.__
-
-__Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.__
-
-__Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.__
-
 _type your results and analysis here_
+
+
+_Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report._
+
 
 ```{python}
 #| label: Q2
@@ -104,7 +103,7 @@ df2
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
+_Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results._
 
 ```{python}
 #| label: Q2 chart
@@ -124,6 +123,7 @@ df2
 
 ```
 
+_Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results._
 
 ```{python}
 #| label: Q2 table
@@ -168,6 +168,20 @@ df3
 
 ```
 
+```{python}
+q = '''
+SELECT yearID AS Year, teamID AS Team, SUM(W) AS Wins
+FROM pitching
+WHERE teamID = 'BAL' OR teamID ='BOS'
+GROUP BY yearID, teamID
+HAVING yearID >= 1985 AND yearID <= 2016
+ORDER BY yearID
+'''
+
+df4 = pd.read_sql_query(q,conn)
+df4
+```
+
 _include figures in chunks and discuss your findings in the figure._
 
 ```{python}
@@ -178,7 +192,8 @@ _include figures in chunks and discuss your findings in the figure._
 chart = px.line(df3.head(70),
     x="Year", 
     y="AVG_Salary",
-    color='Team'
+    color='Team',
+    title='Average Salary throughout the Years'
 )
 
 chart.add_annotation(x=2011, y=5991203, text="Salary Spike in 2011", font=dict(size=10), arrowcolor="black")
@@ -186,3 +201,21 @@ chart.add_annotation(x=2011, y=5991203, text="Salary Spike in 2011", font=dict(s
 chart.show()
 ```
 
+```{python}
+#| label: Q3 chart2
+#| code-summary: plot example
+#| fig-align: center
+# Include and execute your code here
+chart = px.line(df4.head(200),
+    x="Year", 
+    y="Wins",
+    color='Team',
+    title='Wins Each Year'
+)
+
+chart.add_annotation(x=2011, y=90, text="2011", font=dict(size=10), arrowcolor="black")
+
+chart.show()
+
+
+```
