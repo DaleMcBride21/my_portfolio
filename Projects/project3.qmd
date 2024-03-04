@@ -37,8 +37,7 @@ import sqlite3
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+_Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management._
 
 ```{python}
 #| label: project data
@@ -54,7 +53,7 @@ conn = sqlite3.connect(sqlite_file)
 
 __Write an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.__
 
-_type your results and analysis here_
+_The table about people who attended BYU-Idaho and played baseball shows that the highest salary that was paid was about $4,000,000 in 2014. While the lowest was at about $150,000 in 1997. Almost half of the players that attended BYU-Idaho made over 1 Million anually._
 
 ```{python}
 #| label: Q1
@@ -78,7 +77,7 @@ df1
 
 __This three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)__
 
-_type your results and analysis here_
+_After looking at the tables we can see that over the course of a career an average of about .360 is a very good batting average. If the number is higher than that the player didn't have a very long career or the just didn't hit a lot. Such as a pitcher._
 
 
 _Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report._
@@ -149,7 +148,7 @@ df2
 
 __Pick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?__
 
-_type your results and analysis here_
+_Looking at the Baltimore Orioles and the Boston Red Sox after comparing the average salary of the two teams Boston pays a lot more than Baltimore. I wanted to see if a team pays more they will get more wins. From the two charts Boston started to catch up in pay and then paying more than Baltimore. Boston then started winning more and stayed above Baltimore in wins for a long time. In 2011 the salary peaked and declined afterwards. Interestingly the wins droped signifcantly as well after the pay went down._
 
 ```{python}
 #| label: Q3
