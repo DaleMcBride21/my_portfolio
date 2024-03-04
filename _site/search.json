@@ -228,14 +228,14 @@
     "href": "Projects/project3.html",
     "title": "Client Report - Project 3",
     "section": "",
-    "text": "After investigating BYU-Idaho alumni in MLB there are some corrolations of abnormal batting percentages to shorter careers. As well as how paying more money can lead to better win rating. \n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
+    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
   },
   {
     "objectID": "Projects/project3.html#elevator-pitch",
     "href": "Projects/project3.html#elevator-pitch",
     "title": "Client Report - Project 3",
     "section": "",
-    "text": "After investigating BYU-Idaho alumni in MLB there are some corrolations of abnormal batting percentages to shorter careers. As well as how paying more money can lead to better win rating. \n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
+    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
   },
   {
     "objectID": "Projects/project3.html#questiontask-1",
