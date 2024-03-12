@@ -33,6 +33,13 @@ import numpy as np
 import plotly.express as px
 ```
 
+```{python}
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn import tree
+from sklearn import metrics
+```
+
 
 ## Elevator pitch
 
@@ -65,43 +72,62 @@ _type your results and analysis here_
 _include figures in chunks and discuss your findings in the figure._
 
 ```{python}
-#| label: Q1 chart
+#| label: Q1 chart 1
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
 subset = df.filter(['before1980', 'yrbuilt', 'netprice', 'numbdrm', 'numbaths', 'nocars'])
 
-colors = ['blue', 'red']
+subset['color'] = subset['before1980'].apply(lambda x: 'Before 1980' if x else 'After 1980')
 
+color_map_labels = {'Before 1980': 'blue', 'After 1980': 'red'}
 
 chart = px.scatter(subset,
+    title='Relationship Between House Price and Garage Capacity',
     x="nocars", 
     y="netprice",
-    color="before1980",
-    color_discrete_sequence=colors,
-    size="netprice"
+    color="color",
+    size="netprice",
+    color_discrete_map=color_map_labels
 )
+
+chart.update_layout(
+    xaxis_title="Capacity of the Garage in Terms of Car Storage",
+    yaxis_title="Price of the Property"
+)
+
 chart.show()
 ```
 
 
-<!-- ```{python}
-#| label: Q1 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
+```{python}
+#| label: Q1 chart 2
+#| code-summary: plot example
+#| fig-align: center
 # Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
 
-display(mydat)
+subset = df.filter(['before1980', 'yrbuilt', 'netprice', 'numbdrm', 'numbaths', 'nocars'])
 
-``` -->
+subset['color'] = subset['before1980'].apply(lambda x: 'Before 1980' if x else 'After 1980')
+
+color_map_labels = {'Before 1980': 'blue', 'After 1980': 'red'}
+
+chart = px.scatter(subset,
+    title="Comparing Bathroom Count and Build Year",
+    x="yrbuilt", 
+    y="numbaths",
+    color="color",
+    color_discrete_map=color_map_labels
+
+)
+
+chart.update_layout(
+    xaxis_title="Year Built",
+    yaxis_title="Number of Bathrooms"
+)
+
+chart.show()
+```
 
 
 ## QUESTION|TASK 2
@@ -110,31 +136,38 @@ __Build a classification model labeling houses as being built “before 1980” 
 
 _type your results and analysis here_
 
-<!-- ```{python}
+```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
 
+X_pred = df.drop(df.filter(regex = 'before1980|yrbuilt').columns, axis = 1)
 
-``` -->
+y_pred = df.filter(regex = "before1980")
+
+X_train, X_test, y_train, y_test = train_test_split(X_pred, y_pred, test_size = .34, random_state = 76)
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+model.predict(X_test)
+
+```
 
 _include figures in chunks and discuss your findings in the figure._
 
-<!-- ```{python}
-#| label: Q2 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-``` -->
+```{python}
+#| label: chart
+y_test
+```
+
+```{python}
+X_train
+```
 
 
-<!-- ```{python}
+```{python}
 #| label: Q2 table
 #| code-summary: table example
 #| tbl-cap: "Not much of a table"
@@ -149,7 +182,7 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-``` -->
+```
 
 
 ## QUESTION|TASK 3
