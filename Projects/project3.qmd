@@ -44,7 +44,7 @@ _Research on BYU-Idaho alumni in MLB highlights a connection between atypical ba
 #| code-summary: Read and format project data
 # Include and execute your code here
 import sys
-sqlite_file = "C:\\Users\\Dale McBride\\Documents\\GitHub\\school_work\\ds250\\lahmansbaseballdb.sqlite"
+sqlite_file = "C:\\Users\\dlmcb\\Documents\\GitHub\\school_work\\ds250\\lahmansbaseballdb.sqlite"
 conn = sqlite3.connect(sqlite_file)
 
 ```

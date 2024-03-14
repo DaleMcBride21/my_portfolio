@@ -52,7 +52,7 @@ _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METR
 #| code-summary: Read and format project data
 # Include and execute your code here
 df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
- ```
+```
 
 __Highlight the Questions and Tasks__
 
@@ -68,7 +68,7 @@ _After 1980, there is a noticeable rise in both the livable space density and th
 #| code-summary: plot example
 #| fig-align: center
 # Include and execute your code here
-subset = df.filter(['before1980', 'yrbuilt', 'netprice', 'numbdrm', 'numbaths', 'nocars', 'sprice', 'smonth', 'livearea', 'deduct', 'stories', 'livearea',])
+subset = df.filter(['before1980', 'yrbuilt', 'netprice', 'smonth', 'livearea', 'deduct', 'stories', 'livearea',])
 
 subset['color'] = subset['before1980'].apply(lambda x: 'Before 1980' if x else 'After 1980')
 
@@ -168,18 +168,18 @@ __Justify your classification model by discussing the most important features se
 _The most important features are listed by their importance values in descending order. The graphic gives another look at the importance values. The decision tree uses arcstyle_ONE-STORY to base a lot of its predictions as well as gartype_Att, quality_C and livearea._
 
 ```{python}
-feature_importance = clf.feature_importances_
-feature_names = X_train.columns
+# feature_importance = clf.feature_importances_
+# feature_names = X_train.columns
 
-# Create a dictionary to associate feature names with their importance values
-feature_importance_dict = dict(zip(feature_names, feature_importance))
+# # Create a dictionary to associate feature names with their importance values
+# feature_importance_dict = dict(zip(feature_names, feature_importance))
 
-# Sort the dictionary by importance values in descending order
-sorted_feature_importance = sorted(feature_importance_dict.items(), key=lambda x: x[1], reverse=True)
+# # Sort the dictionary by importance values in descending order
+# sorted_feature_importance = sorted(feature_importance_dict.items(), key=lambda x: x[1], reverse=True)
 
-# Display the top features and their importance values
-for feature, importance in sorted_feature_importance:
-    print(f"Feature: {feature}, Importance: {importance}")
+# # Display the top features and their importance values
+# for feature, importance in sorted_feature_importance:
+#     print(f"Feature: {feature}, Importance: {importance}")
 ```
 
 
@@ -198,7 +198,6 @@ _include figures in chunks and discuss your findings in the figure._
 ```{python}
 #| label: Q3 feature importance chart!!!!
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
 chart = px.bar(df_features.head(10),

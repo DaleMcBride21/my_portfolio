@@ -23,37 +23,37 @@
   {
     "objectID": "Projects/project4.html",
     "href": "Projects/project4.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Project 4",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\nHighlight the Questions and Tasks"
+    "text": "Code\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn import tree\nfrom sklearn import metrics"
   },
   {
     "objectID": "Projects/project4.html#elevator-pitch",
     "href": "Projects/project4.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\nHighlight the Questions and Tasks"
+    "title": "Client Report - Project 4",
+    "section": "Elevator pitch",
+    "text": "Elevator pitch\npaste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv\")\n\n\nHighlight the Questions and Tasks"
   },
   {
     "objectID": "Projects/project4.html#questiontask-1",
     "href": "Projects/project4.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Project 4",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\ninclude figures in chunks and discuss your findings in the figure."
+    "text": "QUESTION|TASK 1\nCreate 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.\nAfter 1980, there is a noticeable rise in both the livable space density and the net price of homes, suggesting a possible correlation between the construction year and the size and cost of the properties.\n\n\nplot example\n# Include and execute your code here\nsubset = df.filter(['before1980', 'yrbuilt', 'netprice', 'smonth', 'livearea', 'deduct', 'stories', 'livearea',])\n\nsubset['color'] = subset['before1980'].apply(lambda x: 'Before 1980' if x else 'After 1980')\n\ncolor_map_labels = {'Before 1980': 'blue', 'After 1980': 'red'}\n\nchart = px.scatter(subset,\n    title='Liveable Area versus house build year',\n    x=\"yrbuilt\", \n    y=\"livearea\",\n    color=\"color\",\n    color_discrete_map=color_map_labels\n)\n\nchart.update_layout(\n    xaxis_title=\"Year Built\",\n    yaxis_title=\"Liveable Area\"\n)\n\nchart.show()\n\n\n\n                                                \n\n\nThe chart shows a siginificant increase in quantity of homes with higher amounts of liveable area in them after 1980.\n\n\nplot example\n# Include and execute your code here\n\nsubset = df.filter(['before1980', 'yrbuilt', 'netprice', 'numbdrm', 'numbaths', 'nocars'])\n\nsubset['color'] = subset['before1980'].apply(lambda x: 'Before 1980' if x else 'After 1980')\n\ncolor_map_labels = {'Before 1980': 'blue', 'After 1980': 'red'}\n\nchart = px.scatter(subset,\n    title=\"Comparing Net price and Build Year\",\n    x=\"yrbuilt\", \n    y=\"netprice\",\n    color=\"color\",\n    color_discrete_map=color_map_labels\n\n)\n\nchart.update_layout(\n    xaxis_title=\"Year Built\",\n    yaxis_title=\"Net Price\"\n)\n\nchart.show()\n\n\n\n                                                \n\n\nThis chart also shows an increase in the quantity of more expensive homes after the year of 1980. There are a few outliers in the data prior to 1980, but not enough to change the data."
   },
   {
     "objectID": "Projects/project4.html#questiontask-2",
     "href": "Projects/project4.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Project 4",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\ninclude figures in chunks and discuss your findings in the figure."
+    "text": "QUESTION|TASK 2\nBuild a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.\nThe model below achieves a accuracy of 90%. Although houses that were built before 1980 it has a little bit harder time predicting the right value. On the other hand it does very well predicting houses built during or after 1980. Scoring above 90% in all of the categories of Precision, Recall, F1-score, and Support.\n\n\nRead and format data\n# Include and execute your code here\n\nX_pred = df.drop(df.filter(regex = 'before1980|yrbuilt|parcel').columns, axis = 1)\n\ny_pred = df.filter(regex = \"before1980\")\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X_pred, y_pred, test_size = .32, random_state = 78)\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nCode\nclf = tree.DecisionTreeClassifier()\nclf = clf.fit(X_train, y_train)\ny_pred = clf.predict(X_test)\ny_probs = clf.predict_proba(X_test)\n\n\n\n\nCode\nprint(metrics.classification_report(y_test, y_pred))\n\n\n              precision    recall  f1-score   support\n\n           0       0.86      0.88      0.87      2713\n           1       0.93      0.92      0.92      4620\n\n    accuracy                           0.90      7333\n   macro avg       0.90      0.90      0.90      7333\nweighted avg       0.90      0.90      0.90      7333"
   },
   {
     "objectID": "Projects/project4.html#questiontask-3",
     "href": "Projects/project4.html#questiontask-3",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Project 4",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\ntype your results and analysis here\n\ninclude figures in chunks and discuss your findings in the figure."
+    "text": "QUESTION|TASK 3\nJustify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.\nThe most important features are listed by their importance values in descending order. The graphic gives another look at the importance values. The decision tree uses arcstyle_ONE-STORY to base a lot of its predictions as well as gartype_Att, quality_C and livearea.\n\n\nCode\n# feature_importance = clf.feature_importances_\n# feature_names = X_train.columns\n\n# # Create a dictionary to associate feature names with their importance values\n# feature_importance_dict = dict(zip(feature_names, feature_importance))\n\n# # Sort the dictionary by importance values in descending order\n# sorted_feature_importance = sorted(feature_importance_dict.items(), key=lambda x: x[1], reverse=True)\n\n# # Display the top features and their importance values\n# for feature, importance in sorted_feature_importance:\n#     print(f\"Feature: {feature}, Importance: {importance}\")\n\n\n\n\nRead and format data\n# Include and execute your code here\ndf_features = pd.DataFrame(\n    {'f_names': X_train.columns, \n    'f_values': clf.feature_importances_}).sort_values('f_values', ascending = False)\n\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\nplot example\n# Include and execute your code here\nchart = px.bar(df_features.head(10),\n    x='f_values', \n    y='f_names'\n)\n\nchart.update_layout(yaxis={'categoryorder':'total ascending'})"
   },
   {
     "objectID": "Projects/project2.html",
@@ -228,14 +228,14 @@
     "href": "Projects/project3.html",
     "title": "Client Report - Project 3",
     "section": "",
-    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
+    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:\\\\Users\\\\dlmcb\\\\Documents\\\\GitHub\\\\school_work\\\\ds250\\\\lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
   },
   {
     "objectID": "Projects/project3.html#elevator-pitch",
     "href": "Projects/project3.html#elevator-pitch",
     "title": "Client Report - Project 3",
     "section": "",
-    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:/Users/dlmcb/OneDrive/Documents/GitHub/school_work/ds250/lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
+    "text": "Research on BYU-Idaho alumni in MLB highlights a connection between atypical batting averages and shorter professional careers. It also reveals that teams investing more in player salaries, like the Boston Red Sox over the Baltimore Orioles, tend to experience better win rates. This suggests not only the financial dynamics of team performance but also the impact of individual player statistics on career longevity. These findings offer valuable insights into the strategic aspects of baseball, from player development to team management.\n\n\nRead and format project data\n# Include and execute your code here\nimport sys\nsqlite_file = \"C:\\\\Users\\\\dlmcb\\\\Documents\\\\GitHub\\\\school_work\\\\ds250\\\\lahmansbaseballdb.sqlite\"\nconn = sqlite3.connect(sqlite_file)"
   },
   {
     "objectID": "Projects/project3.html#questiontask-1",
@@ -327,5 +327,12 @@
     "title": "Dale McBride’s CV",
     "section": "",
     "text": "July 2023 - August 2023 Philpott Farm and Sawmill, Otto, WY\n\nFarm Hand\nI managed and took care of farm land and other tasks that were given to me.\n\nJune 2020 - August 2020 Meeteetse School, Meeteetse, WY\n\nMainenance Worker\nI maintained or cleaned the different systems and facilities that were on the campus."
+  },
+  {
+    "objectID": "Projects/project4.html#questiontask-4",
+    "href": "Projects/project4.html#questiontask-4",
+    "title": "Client Report - Project 4",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nDescribe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.\nThe quality of the model is on the high end by having an accuracy of 90%, a precisinon of 90% and a recall of 90%. Having 90% of the houses correctly classified is really good. 90% of the houses that are lebeld as built before 1980 are actually bulit before 1980. As well as correctly identifying 90% of the houses built before 1980.\n\n\nRead and format data\n# Include and execute your code here\nprint(metrics.classification_report(y_test, y_pred))\n\n\n              precision    recall  f1-score   support\n\n           0       0.86      0.88      0.87      2713\n           1       0.93      0.92      0.92      4620\n\n    accuracy                           0.90      7333\n   macro avg       0.90      0.90      0.90      7333\nweighted avg       0.90      0.90      0.90      7333"
   }
 ]
