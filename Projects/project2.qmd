@@ -71,12 +71,11 @@ missing = df.isin(missing_values)
 fill_nan_df = df.mask(missing, "NaN")
 ```
 
-_include figures in chunks and discuss your findings in the figure._
+
 
 ```{python}
 #| label: Q1 table
 #| code-summary: table example
-#| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
 # Include and execute your code here
 mydat = fill_nan_df.head(1)
@@ -120,7 +119,6 @@ replace_nan_df
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 
 ## QUESTION|TASK 3
@@ -166,7 +164,6 @@ task_3_df
 ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 average_delay = task_3_df['minutes_delayed_total'].mean()
 
@@ -219,7 +216,6 @@ weather = (df.assign(
 weather.head()
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 
 ## QUESTION|TASK 5
@@ -232,7 +228,6 @@ _From this graph you can see which airports have thet least amount of delays by 
 ```{python}
 #| label: Q5 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
 

@@ -158,6 +158,13 @@ y_probs = clf.predict_proba(X_test)
 print(metrics.classification_report(y_test, y_pred))
 ```
 
+```{python}
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+y_probs = clf.predict_proba(X_test)
+#evaluate the difference between the two
+```
 
 
 
@@ -191,6 +198,7 @@ df_features = pd.DataFrame(
     {'f_names': X_train.columns, 
     'f_values': clf.feature_importances_}).sort_values('f_values', ascending = False)
 
+    #what does before 1980 have to do with the top value in the bar chart
 ```
 
 _include figures in chunks and discuss your findings in the figure._
@@ -222,3 +230,5 @@ _The quality of the model is on the high end by having an accuracy of 90%, a pre
 print(metrics.classification_report(y_test, y_pred))
 
 ```
+
+The second half of each questions(give more of an explaination), remove the random sentences, use a different algorithm and compare the two of them, elevator pitch, check for misspellings
