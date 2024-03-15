@@ -37,6 +37,7 @@ import plotly.express as px
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import tree
 from sklearn import metrics
 ```
@@ -60,7 +61,7 @@ __Highlight the Questions and Tasks__
 
 __Create 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.__
 
-_After 1980, there is a noticeable rise in both the livable space density and the net price of homes, suggesting a possible correlation between the construction year and the size and cost of the properties._
+_After 1980, there is a noticeable rise in both the livable space density and the net price of homes, suggesting a possible correlation between the construction year and the size and cost of the properties. The first scatter plot shows a corrolation between the liveable area and the year that it was built. The number of houses larger than 5000 square feet built after 1980 significantly increases. Showing a corrolation between house size and the year built. The second chart compares the net price and the year that it is built. Showing that if the netprice is higher than it is likely that the house was built after 1980._
 
 
 ```{python}
@@ -127,7 +128,7 @@ _This chart also shows an increase in the quantity of more expensive homes after
 
 __Build a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.__
 
-_The model below achieves a accuracy of 90%. Although houses that were built before 1980 it has a little bit harder time predicting the right value. On the other hand it does very well predicting houses built during or after 1980. Scoring above 90% in all of the categories of Precision, Recall, F1-score, and Support._
+_Report 2 exhibits the highest performance across all evaluation metrics, boasting the highest accuracy, precision, recall, and F1-score among the three models evaluated. With precision and recall scores of 0.90 and 0.94 for Class 0 and Class 1 respectively, Report 2 demonstrates its effectiveness in correctly identifying both positive and negative instances. The balanced F1-score of 0.90 and 0.94 for Class 0 and Class 1 further confirms the model's ability to maintain a trade-off between precision and recall. Overall, Report 2 emerges as the most robust classifier, showcasing superior predictive capability on the dataset._
 
 ```{python}
 #| label: Q2
@@ -144,8 +145,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
-
 ```{python}
 #| label: chart
 clf = tree.DecisionTreeClassifier()
@@ -159,11 +158,26 @@ print(metrics.classification_report(y_test, y_pred))
 ```
 
 ```{python}
-clf = tree.DecisionTreeClassifier()
+clf = RandomForestClassifier()
 clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 y_probs = clf.predict_proba(X_test)
 #evaluate the difference between the two
+```
+
+```{python}
+print(metrics.classification_report(y_test, y_pred))
+```
+
+```{python}
+clf = GradientBoostingClassifier()
+clf = clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+y_probs = clf.predict_proba(X_test)
+```
+
+```{python}
+print(metrics.classification_report(y_test, y_pred))
 ```
 
 
@@ -201,7 +215,6 @@ df_features = pd.DataFrame(
     #what does before 1980 have to do with the top value in the bar chart
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 ```{python}
 #| label: Q3 feature importance chart!!!!
@@ -221,7 +234,7 @@ chart.update_layout(yaxis={'categoryorder':'total ascending'})
 
 __Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.__
 
-_The quality of the model is on the high end by having an accuracy of 90%, a precisinon of 90% and a recall of 90%. Having 90% of the houses correctly classified is really good. 90% of the houses that are lebeld as built before 1980 are actually bulit before 1980. As well as correctly identifying 90% of the houses built before 1980._
+_The quality of the model is on the high end by having an accuracy of 90%, a precisinon of 90% and a recall of 90%. Having 90% of the houses correctly classified is really good. 90% of the houses that are labeled as built before 1980 are actually built before 1980. As well as correctly identifying 90% of the houses built before 1980._
 
 ```{python}
 #| label: Q4
@@ -231,4 +244,4 @@ print(metrics.classification_report(y_test, y_pred))
 
 ```
 
-The second half of each questions(give more of an explaination), remove the random sentences, use a different algorithm and compare the two of them, elevator pitch, check for misspellings
+The second half of each questions(give more of an explaination), use a different algorithm and compare the two of them, elevator pitch, check for misspellings
