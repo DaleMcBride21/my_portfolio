@@ -45,8 +45,8 @@ from sklearn import metrics
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+_The analysis reveals compelling insights into the correlation between property attributes and construction years, indicating a noticeable rise in livable space density and net prices of homes after 1980. Report 2 emerges as the most robust classifier, showcasing superior predictive capability with high accuracy, precision, recall, and balanced F1-scores. Key features such as architectural style, garage type, quality rating, and living area size play crucial roles in predicting property outcomes, highlighting their significance in characterizing properties and influencing classification decisions. The model's ability to maintain a strong balance between precision and recall underscores its reliability in making precise predictions for different property classes, providing valuable insights for stakeholders in the real estate industry._
+
 
 ```{python}
 #| label: project data
@@ -55,7 +55,6 @@ _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METR
 df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
 ```
 
-__Highlight the Questions and Tasks__
 
 ## QUESTION|TASK 1
 
@@ -158,6 +157,7 @@ print(metrics.classification_report(y_test, y_pred))
 ```
 
 ```{python}
+#| fig-cap: "This is the best algorithm"
 clf = RandomForestClassifier()
 clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
@@ -186,7 +186,7 @@ print(metrics.classification_report(y_test, y_pred))
 
 __Justify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.__
 
-_The most important features are listed by their importance values in descending order. The graphic gives another look at the importance values. The decision tree uses arcstyle_ONE-STORY to base a lot of its predictions as well as gartype_Att, quality_C and livearea._
+_In the classification model, several features play crucial roles in predicting outcomes, with the most significant being the architectural style denoted as "one-story." This feature, with the highest importance value of 0.34, indicates whether a property follows a one-story architectural design, suggesting its role in the model's decision-making process. Additionally, the presence of an attached garage (gartype_Att) emerges as the second most influential feature, emphasizing its importance in determining property classifications. Quality rating (quality_C) and living area size (livearea) also exhibit notable importance values, further contributing to the model's predictive accuracy. The prevalence of these features underscores their significance in characterizing properties and their potential impact on predicted outcomes, providing valuable insights into the factors driving the classification decisions._
 
 ```{python}
 # feature_importance = clf.feature_importances_
@@ -234,14 +234,4 @@ chart.update_layout(yaxis={'categoryorder':'total ascending'})
 
 __Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.__
 
-_The quality of the model is on the high end by having an accuracy of 90%, a precisinon of 90% and a recall of 90%. Having 90% of the houses correctly classified is really good. 90% of the houses that are labeled as built before 1980 are actually built before 1980. As well as correctly identifying 90% of the houses built before 1980._
-
-```{python}
-#| label: Q4
-#| code-summary: Read and format data
-# Include and execute your code here
-print(metrics.classification_report(y_test, y_pred))
-
-```
-
-The second half of each questions(give more of an explaination), use a different algorithm and compare the two of them, elevator pitch, check for misspellings
+_The classification model displays robust performance, evident through its high precision, recall, and F1-score values across both classes. Precision measures the proportion of true positive predictions out of all positive predictions made by the model, indicating its ability to accurately identify positive instances while minimizing false positives. Recall, on the other hand, measures the model's effectiveness in capturing actual positive instances, with higher values suggesting fewer false negatives. The F1-score, being the mean of precision and recall, provides a balanced assessment of the model's overall accuracy, considering both precision and recall simultaneously. With precision rates of 0.90 for class 0 and 0.94 for class 1, recall rates of 0.90 for class 0 and 0.94 for class 1, and balanced F1-scores of 0.90 for class 0 and 0.94 for class 1, the model demonstrates its reliability in making precise predictions for each class while maintaining a strong balance between precision and recall._
