@@ -43,7 +43,11 @@ _A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METR
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
-df = pd.read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/star-wars-survey/StarWars.csv")
+url = "https://raw.githubusercontent.com/fivethirtyeight/data/master/star-wars-survey/StarWars.csv"
+
+df_names = pd.read_csv(url, encoding = "ISO-8859-1", nrows = 1).melt()
+
+df = pd.read_csv(url, encoding = "ISO-8859-1", skiprows=2, header = None)
 ```
 
 __Highlight the Questions and Tasks__
