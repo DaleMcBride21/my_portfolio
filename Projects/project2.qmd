@@ -69,6 +69,7 @@ missing = df.isin(missing_values).sum()
 #this replaces all of the missing values that are in the list above as "NaN"
 missing = df.isin(missing_values)
 fill_nan_df = df.mask(missing, "NaN")
+fill_nan_df
 ```
 
 
